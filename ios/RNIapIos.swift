@@ -213,6 +213,10 @@ class RNIapIos: RCTEventEmitter, SKRequestDelegate, SKPaymentTransactionObserver
                 payment.quantity = quantity
             }
 
+            #if DEBUG
+                payment.simulatesAskToBuyInSandbox = true
+            #endif
+
             SKPaymentQueue.default().add(payment)
         } else {
             if hasListeners {
